@@ -9,9 +9,9 @@ const App: React.FC = () => {
   const [grandes, setGrandes] = useState<number>(0);
 
   const categories = [
-    { id: 'desayunos-meriendas', name: 'Desayunos y Meriendas' },
-    { id: 'almuerzos-cenas', name: 'Almuerzos y Cenas' },
-    { id: 'copa-leche', name: 'Copa de Leche' },
+    { id: 'desayunos-meriendas', name: 'Desayunos y Meriendas', image: '/images/desayunos.png' },
+    { id: 'almuerzos-cenas', name: 'Almuerzos y Cenas', image: '/images/almuerzo.png' },
+    { id: 'copa-leche', name: 'Copa de Leche', image: '/images/copa-leche.png' },
   ];
 
   const filteredRecipes = selectedCategory
@@ -34,9 +34,14 @@ const App: React.FC = () => {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="bg-white p-4 rounded-lg shadow-md hover:scale-105 cursor-pointer"
+              className="bg-white p-4 rounded-lg shadow-md hover:scale-105 cursor-pointer flex flex-col items-center"
               onClick={() => setSelectedCategory(cat.id)}
             >
+              <img
+                src={cat.image}
+                alt={cat.name}
+                className="w-full h-40 object-cover rounded mb-2"
+              />
               <h2 className="text-lg font-semibold">{cat.name}</h2>
             </div>
           ))}
