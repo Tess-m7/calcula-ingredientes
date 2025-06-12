@@ -20,6 +20,10 @@ input[type="number"] {
   background-color: white !important;
   color: black !important;
 }
+select {
+  background-color: white;
+  color: black;
+}
 
 a {
   font-weight: 500;

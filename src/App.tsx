@@ -97,7 +97,15 @@ const App: React.FC = () => {
         <div className="w-full max-w-3xl">
          <button
   className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 hover:bg-blue-200 font-medium rounded-full shadow-sm transition duration-200 mb-4"
-  onClick={() => setSelectedCategory(null)}
+  onClick={() => {
+    setSelectedRecipeId(null);
+    setSelectedCategory(null);
+    setChicos(0);
+    setMedianos(1);
+    setGrandes(0);
+    setSearchQuery('');
+    setActiveTab('ingredientes');
+  }}
 >
   <svg
     className="w-5 h-5"
@@ -149,10 +157,18 @@ const App: React.FC = () => {
       )}
 
       {currentRecipe && (
-        <div className="w-full max-w-3xl bg-white p-6 rounded-lg shadow-lg mt-6">
+        <div className="w-full max-w-3xl space-y-6 mt-6">
          <button
   className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 hover:bg-blue-200 font-medium rounded-full shadow-sm transition duration-200 mb-4"
-  onClick={() => setSelectedCategory(null)}
+  onClick={() => {
+    setSelectedRecipeId(null);
+    setSelectedCategory(null);
+    setChicos(0);
+    setMedianos(1);
+    setGrandes(0);
+    setSearchQuery('');
+    setActiveTab('ingredientes');
+  }}
 >
   <svg
     className="w-5 h-5"
@@ -208,7 +224,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Comensales */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 bg-white p-4 rounded shadow">
             {renderInputControl('Comensales Chicos', chicos, setChicos)}
             {renderInputControl('Comensales Medianos', medianos, setMedianos)}
             {renderInputControl('Comensales Grandes', grandes, setGrandes)}
